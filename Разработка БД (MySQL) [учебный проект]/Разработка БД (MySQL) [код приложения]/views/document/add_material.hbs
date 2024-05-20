@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавление поставляемого материала</title>
+    <meta charset="utf-8" />
+    <style>.field{width:180px;}</style>
+    <style type="text/css">
+    H1 { 
+        font-size: 120%;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        color: #336;
+    }
+    </style>
+</head>
+<body>
+    <h1>Добавление поставляемого материала</h1>
+     <form action="/add_material" method="POST">
+        <input type="hidden" name="id" value="{{id}}"/>
+        <label>Материал</label><br>
+        <p><select size="3" multiple name="material" required>
+            <option disabled>Поставщики из справочника</option>
+            {{#each Material}}
+                <option>{{this.MaterialName}}</option>
+            {{/each}}
+        </select></p>
+        <input type="submit" value="Отправить" />
+        
+     </form>
+     <a href="/index_document">К списку документов</a>
+</body>
+<html>
+
+    

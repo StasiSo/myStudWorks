@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Справочник документов</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    H1 { 
+        font-size: 120%; 
+        font-family: Verdana, Arial, Helvetica, sans-serif; 
+        color: #336; 
+    }
+    TABLE {
+        border-spacing: 0 10px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    td {
+        vertical-align: middle;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        border-top: 2px solid #56433D;
+        border-bottom: 2px solid #56433D;
+        border-right: 2px solid #56433D;
+    }
+    th {
+        padding: 10px 20px;
+        background: #56433D;
+        color: #F9C941;
+        border-right: 2px solid; 
+        font-size: 0.9em;
+    }
+    a {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1>Справочник документов</h1>
+    <p><a href="/create_document">Добавить документ</a></p>
+    <table cellpadding="5" border="1">
+        <tr><th>Код документа</th><th>Номер документа</th><th>Дата</th><th>Наименование</th><th>Поставщик</th><th>Материал</th><th></th><th></th></tr>
+        {{#each Document}}
+            <tr>
+                <td>{{this.DocumentID}}</td>
+                <td>{{this.DocumentNum}}</td>
+                <td>{{this.DocumentDate}}</td>
+                <td>{{this.DocumentName}}</td>
+                <td>{{this.DocumentVendor}}</td>
+                <td>{{this.DocumentMaterial}}</td>
+                <td>
+                    <a href="/add_material/{{this.DocumentID}}">Add</a>
+                </td>
+                <td>
+                    <form action="delete_document/{{this.DocumentID}}" method="POST" style="display:inline;">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    <p><a href="/">В главное меню</a></p>
+</body>
+<html>

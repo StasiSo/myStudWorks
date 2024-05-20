@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Справочник материалов</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    H1 { 
+        font-size: 120%; 
+        font-family: Verdana, Arial, Helvetica, sans-serif; 
+        color: #336; 
+    }
+    TABLE {
+        border-spacing: 0 10px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    td {
+        vertical-align: middle;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        border-top: 2px solid #56433D;
+        border-bottom: 2px solid #56433D;
+        border-right: 2px solid #56433D;
+    }
+    th {
+        padding: 10px 20px;
+        background: #56433D;
+        color: #F9C941;
+        border-right: 2px solid; 
+        font-size: 0.9em;
+    }
+    a {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1>Справочник материалов</h1>
+    <p><a href="/create_material">Добавить материал</a></p>
+    <table cellpadding="5" border="1">
+        <tr><th>Код материала</th><th>Класс</th><th>Группа</th><th>Наименование</th><th>Мера</th><th></th></tr>
+        {{#each Material}}
+            <tr>
+                <td>{{this.MaterialID}}</td>
+                <td>{{this.MaterialKlass}}</td>
+                <td>{{this.MaterialGroup}}</td>
+                <td>{{this.MaterialName}}</td>
+                <td>{{this.MaterialMeasure}}</td>
+                <td>
+                    <form action="delete_material/{{this.MaterialID}}" method="POST" style="display:inline;">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    <p><a href="/">В главное меню</a></p>
+  </body>
+<html>

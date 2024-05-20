@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Счёт</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    H2 { 
+        font-size: 120%;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        color: #336;
+    }
+    </style>
+</head>
+<body>
+    <h2>Посчитать количество поставщиков материала из справочника</h2>
+    <label>Поставляемые материалы</label><br>
+    <ol>
+        {{#each Document}}
+        <li>{{this.DocumentMaterial}}
+            <form action="count_material/{{this.DocumentMaterial}}" method="POST" style="display:inline;">
+                <input type="submit" value="Count"/>
+            </form>
+        </li>
+        {{/each}}
+    </ol>
+    <p><a href="/">В главное меню</a></p>
+</body>
+<html>

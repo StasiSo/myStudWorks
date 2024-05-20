@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавление поставщика</title>
+    <meta charset="utf-8" />
+    <style>.field{width:180px;}</style>
+    <style type="text/css">
+    H1 { 
+        font-size: 120%; 
+        font-family: Verdana, Arial, Helvetica, sans-serif; 
+        color: #336; 
+    }
+    </style>
+</head>
+<body>
+    <h1>Добавление поставщика</h1><br>
+    <form method="POST">
+        <label>Наименование</label><br>
+        <input name="name" maxlength="50" required><br><br>
+        <label>ИНН</label><br>
+        <input name="inn" maxlength="12" required><br><br>
+        <label>Юридический дрес</label><br><br>
+        Почтовый индекс 
+        <br><input name="adress_1" maxlength="6" required>
+        Город 
+        <input name="adress_2" maxlength="25" required><br>
+        Улица 
+        <br><input name="adress_3" maxlength="25" required>
+        Дом 
+        <input name="adress_4"  maxlength="25" required>
+        <br><br><br>
+        <label>Адрес банка</label><br><br>
+        Почтовый индекс 
+        <br><input name="bank_adress_1" maxlength="6" required>
+        Город 
+        <input name="bank_adress_2" maxlength="25" required><br>
+        Улица 
+        <br><input name="bank_adress_3" maxlength="25" required>
+        Дом 
+        <input name="bank_adress_4" maxlength="25" required>
+        <br><br><br>
+        <label>Номер счёта</label><br>
+        <input name="bank_number" maxlength="16" required><br><br>
+        <input type="submit" value="Отправить" />
+     </form>
+     <br><a href="/index_vendor">К списку поставщиков</a>
+</body>
+<html>

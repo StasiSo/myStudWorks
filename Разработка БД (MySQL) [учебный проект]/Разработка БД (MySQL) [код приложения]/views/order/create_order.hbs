@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавление единицы хранения</title>
+    <meta charset="utf-8" />
+    <style>.field{width:180px;}</style> 
+    <style type="text/css">
+    H1 { 
+        font-size: 120%;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        color: #336;
+    }
+    </style>
+</head>
+<body>
+    <h1>Добавление единицы хранения</h1>
+     <form method="POST">
+        <label>Дата</label><br>
+        <input type="date" name="date" required><br><br>
+        <label>Балансный счёт</label><br>
+        <input name="num" maxlength="10" required><br><br>
+
+        <label>Сочетания из справочника</label><br>
+        <p><select size="6" multiple name="document" required>
+            <option disabled>Сочетания из справочника</option>
+            {{#each Some}}
+                <option>{{this.DocumentID}} - {{this.DocumentNum}} - {{this.DocumentName}} - {{this.DocumentVendor}} - {{this.VendorID}} - {{this.DocumentMaterial}} - {{this.MaterialID}} - {{this.MaterialMeasure}} - {{this.MeasureID}}</option>
+            {{/each}}
+        </select></p>
+        
+        <label>Цена единицы измерения, руб.</label><br>
+        <p><input type="number" name="measure_price" value="0" min="0" max="100000" step="1" required></p><br>
+        <label>Количество пришедшего материала</label><br>
+        <p><input type="number" name="material_sum" value="0" min="0" max="10000" step="1" required></p><br>
+
+        <input type="submit" value="Отправить" />
+        
+     </form>
+     <br><a href="/index_order">К списку документов</a>
+</body>
+<html>

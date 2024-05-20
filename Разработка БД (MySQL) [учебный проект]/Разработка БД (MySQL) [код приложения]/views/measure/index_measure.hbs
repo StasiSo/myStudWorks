@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Справочник единиц измерения</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    H1 { 
+        font-size: 120%; 
+        font-family: Verdana, Arial, Helvetica, sans-serif; 
+        color: #336; 
+    }
+    TABLE {
+        border-spacing: 0 10px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    td {
+        vertical-align: middle;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        border-top: 2px solid #56433D;
+        border-bottom: 2px solid #56433D;
+        border-right: 2px solid #56433D;
+    }
+    th {
+        padding: 10px 20px;
+        background: #56433D;
+        color: #F9C941;
+        border-right: 2px solid; 
+        font-size: 0.9em;
+    }
+    a {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1>Справочник единиц измерения</h1>
+    <p><a href="/create_measure">Добавить единицу измерения</a></p>
+    <table cellpadding="5" border="1">
+        <tr><th>Код е.и.</th><th>Единица измерения</th><th></th></tr>
+        {{#each Measure}}
+            <tr>
+                <td>{{this.MeasureID}}</td>
+                <td>{{this.MeasureName}}</td>
+                <td>
+                    <form action="delete_measure/{{this.MeasureID}}" method="POST" style="display:inline;">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    <p><a href="/">В главное меню</a></p>
+</body>
+<html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Инфо</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    H2 { 
+        font-size: 120%;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        color: #336;
+    }
+    </style>
+</head>
+<body>
+    <h2>Список поставщиков материала</h2>
+    Наименование: {{Smth.MaterialName}}, <br>Класс: {{Smth.MaterialKlass}}, группа: {{Smth.MaterialGroup}}
+    <br>Единица измерения: {{Smth.MaterialMeasure}}
+    <br><h3>Поставщики:</h3>
+    <ol>
+        {{#each Some}}
+        <li>{{this.DocumentVendor}}</li>
+        {{/each}}
+    </ol>
+    <p><a href="/index_count_vendor">Назад</a></p>
+</body>
+<html>

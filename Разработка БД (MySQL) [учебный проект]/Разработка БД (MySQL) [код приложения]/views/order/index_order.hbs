@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Единицы хранения</title>
+    <meta charset="utf-8" />
+   <style type="text/css">
+    H1 { 
+        font-size: 120%; 
+        font-family: Verdana, Arial, Helvetica, sans-serif; 
+        color: #336; 
+    }
+    TABLE {
+        border-spacing: 0 10px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    td {
+        vertical-align: middle;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        border-top: 2px solid #56433D;
+        border-bottom: 2px solid #56433D;
+        border-right: 2px solid #56433D;
+    }
+    th {
+        padding: 10px 20px;
+        background: #56433D;
+        color: #F9C941;
+        border-right: 2px solid; 
+        font-size: 0.9em;
+    }
+    a {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+  <h1>Единицы хранения</h1>
+    <p><a href="/create_order">Добавить единицу хранения</a></p>
+    <div><table cellpadding="5" border="1">
+        <tr><th>Код ордера</th><th>Дата</th><th>Код поставщика</th><th>Балансный счёт</th><th>Код сопр. документа</th><th>Номер сопр. документа</th><th>Код материала</th><th>Счёт материала</th><th>Код ед. изм-я</th><th>Кол-во пришедшего материала</th><th>Цена ед. изм-я</th><th></th></tr>
+        {{#each Material_Order}}
+            <tr>
+                <td>{{this.OrderID}}</td>
+                <td>{{this.OrderDate}}</td>
+                <td>{{this.OrderVendorID}}</td>
+                <td>{{this.OrderNum}}</td>
+                <td>{{this.OrderDocumentID}}</td>
+                <td>{{this.OrderDocumentNum}}</td>
+                <td>{{this.OrderMaterialID}}</td>
+                <td>{{this.OrderMaterialNum}}</td>
+                <td>{{this.OrderMeasureID}}</td>
+                <td>{{this.OrderMaterialSum}}</td>
+                <td>{{this.OrderMeasurePrice}}</td>
+                <td>
+                    <form action="delete_order/{{this.OrderID}}" method="POST" style="display:inline;">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table></div>
+    <p><a href="/">В главное меню</a></p>
+  </body>
+<html>

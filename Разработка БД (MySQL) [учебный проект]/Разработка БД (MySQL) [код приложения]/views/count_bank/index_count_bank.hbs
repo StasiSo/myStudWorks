@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Счёт</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    H2 { 
+        font-size: 120%;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        color: #336;
+    }
+    </style>
+</head>
+<body>
+    <h2>Посчитать количество поставщиков пользующихся услугами банка</h2>
+    <label>Адреса банков из справочника поставщиков</label><br>
+    <ol>
+        {{#each Vendor}}
+        <li>{{this.VendorBankAdress}}
+            <form action="count_bank/{{this.VendorBankAdress}}" method="POST" style="display:inline;">
+                <input type="submit" value="Count"/>
+            </form>
+        </li>
+        {{/each}}
+    </ol>
+    <p><a href="/">В главное меню</a></p>
+</body>
+<html>

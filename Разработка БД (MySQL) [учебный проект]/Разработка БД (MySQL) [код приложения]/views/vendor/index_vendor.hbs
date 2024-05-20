@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список поставщиков</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    H1 { 
+        font-size: 120%; 
+        font-family: Verdana, Arial, Helvetica, sans-serif; 
+        color: #336; 
+    }
+    TABLE {
+        border-spacing: 0 10px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    td {
+        vertical-align: middle;
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        border-top: 2px solid #56433D;
+        border-bottom: 2px solid #56433D;
+        border-right: 2px solid #56433D;
+    }
+    th {
+        padding: 10px 20px;
+        background: #56433D;
+        color: #F9C941;
+        border-right: 2px solid; 
+        font-size: 0.9em;
+    }
+    a {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h1>Список поставщиков</h1>
+    <p><a href="/create_vendor">Добавить поставщика</a></p>
+    <table cellpadding="5" border="1">
+        <tr><th>Код поставщика</th>
+        <th>Наименование</th>
+        <th>ИНН</th><th>Юридический адрес</th>
+        <th>Адрес банка</th>
+        <th>Номер счёта</th>
+        <th></th>
+        <th></th></tr>
+        {{#each Vendor}}
+            <tr>
+                <td>{{this.VendorID}}</td>
+                <td>{{this.VendorName}}</td>
+                <td>{{this.VendorINN}}</td>
+                <td>{{this.VendorAdress}}</td>
+                <td>{{this.VendorBankAdress}}</td>
+                <td>{{this.VendorBankNumber}}</td>
+                <td>
+                    <a href="/edit_vendor/{{this.VendorID}}">Edit</a>
+                </td>
+                <td>
+                    <form action="delete_vendor/{{this.VendorID}}" method="POST" style="display:inline;">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    <p><a href="/">В главное меню</a></p>
+</body>
+<html>

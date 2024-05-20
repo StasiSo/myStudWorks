@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавление материала</title>
+    <meta charset="utf-8" />
+    <style>.field{width:180px;}</style>
+    <style type="text/css">
+    H1 { 
+        font-size: 120%;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        color: #336;
+    }
+    </style>
+</head>
+<body>
+    <h1>Добавление материала</h1>
+     <form method="POST">
+        <label>Класс</label><br>
+        <input name="klass" required><br><br>
+        <label>Группа</label><br>
+        <input name="group" required><br><br>
+        <label>Наименование</label><br>
+        <input name="name" required><br><br>
+        <label>Мера</label><br>
+        <p><select size="3" multiple name="measure" required>
+            <option disabled>Мера из справочника</option>
+            {{#each Measure}}
+                <option>{{this.MeasureName}}</option>
+            {{/each}}
+        </select></p>
+        <input type="submit" value="Отправить" />
+        
+     </form>
+     <a href="/index_material">К списку материалов</a>
+</body>
+<html>
